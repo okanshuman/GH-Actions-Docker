@@ -42,6 +42,8 @@ jobs:
         
       - name: Build Docker image
         run: docker build . --file Dockerfile --tag okanshuman/test:${{steps.version.outputs.tag}}
+      - name: Build Docker image latest
+        run: docker build . --file Dockerfile --tag okanshuman/test:latest
         
       - name: Push to Docker Hub
         run: docker push okanshuman/test:${{steps.version.outputs.tag}}
