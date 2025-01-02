@@ -45,6 +45,8 @@ jobs:
         
       - name: Push to Docker Hub
         run: docker push okanshuman/test:${{steps.version.outputs.tag}}
+      - name: Push to Docker Hub as latest
+        run: docker push okanshuman/test:latest
 
       - name: Deploy to AWS EC2
         uses: appleboy/ssh-action@v0.1.6
